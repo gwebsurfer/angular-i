@@ -4,6 +4,7 @@
   <p>titulo: {{ task.title }}</p>
   <p>Descrição {{ task.description }}:</p>
   <p>Data de Vencimento: {{ task.date | date : 'dd/MM/yyyy' }}</p>
+  <p>Data de Vencimento: {{ task.status }}</p>
 
   <button (click)="close()">Fechar</button>
 </div>

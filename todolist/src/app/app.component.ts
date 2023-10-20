@@ -7,8 +7,33 @@ import { Task } from 'src/models/task.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'todolist';
-  listTask: Task[] = [];
+  listTask: Task[] = [
+    {
+      date: new Date(),
+      description: 'Bug Fix 01 Description',
+      status: 'done',
+      title: 'Bug Fix 01',
+    },
+    {
+      date: new Date(),
+      description: 'Bug Fix 02 Description',
+      status: 'done',
+      title: 'Bug Fix 02',
+    },
+    {
+      date: new Date(),
+      description: 'Bug Fix 03 Description',
+      status: 'inprogress',
+      title: 'Bug Fix 03',
+    },
+    {
+      date: new Date(),
+      description: 'Bug Fix 01 Description',
+      status: 'todo',
+      title: 'Bug Fix 01',
+    },
+  ];
+  // listTask: Array<IListTask> = [];
   selectedTask: Task | null = null;
 
   ngOnInit() {

@@ -1,12 +1,5 @@
-.container {
-  h2 {
-    color: red;
-  }
-  .henrique {
-    h2 {
-      color: green;
-    }
-  }
+.container h2 {
+  color: red;
 }
 
 h2 {

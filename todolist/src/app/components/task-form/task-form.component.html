@@ -1,8 +1,5 @@
-<div class="container">
-  <h2>Adicionar Nova Tarefa h2 1</h2>
-  <div class="henrique">
-    <h2>Adicionar Nova Tarefa h2 2</h2>
-  </div>
+<div>
+  <h2>Adicionar Nova Tarefa</h2>
 
   <form (ngSubmit)="submitTask()">
     <div>
@@ -23,9 +20,16 @@
       <input id="date" type="date" [(ngModel)]="newTask.date" name="date" />
     </div>
 
+    <div>
+      <label for="status">Status</label>
+      <select name="status" id="status" [(ngModel)]="newTask.status">
+        <option value="toDo">ToDo</option>
+        <option value="trabalhando">Trabalhando</option>
+        <option value="finalizado">Finalizado</option>
+      </select>
+    </div>
+
     <button type="submit" class="btn btn-primary">sadadsa</button>
     <!--  <button type="submit">Adicionar Tarefas</button> -->
   </form>
 </div>
-
-<h2>KFJBAJFJASDASHGDHGAS</h2>
