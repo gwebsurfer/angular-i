@@ -1,12 +1,25 @@
 <app-task-form (addTask)="onAddTask($event)"></app-task-form>
-<app-task-list
-  [tasks]="listTask"
-  (handleTask)="handleTask($event)"
-></app-task-list>
 
-<div *ngIf="selectedTask">
-  <app-task-detail
-    [task]="selectedTask"
-    (closeDetails)="(closeDetails)"
-  ></app-task-detail>
+<div class="kanban-board">
+  <div class="kanban-column">
+    <h2>To-Do</h2>
+    <app-task-list
+      [tasks]="todoTasks"
+      (handleTask)="handleTask($event)"
+    ></app-task-list>
+  </div>
+  <div class="kanban-column">
+    <h2>In Progress</h2>
+    <app-task-list
+      [tasks]="inprogressTasks"
+      (handleTask)="handleTask($event)"
+    ></app-task-list>
+  </div>
+  <div class="kanban-column">
+    <h2>Done</h2>
+    <app-task-list
+      [tasks]="doneTasks"
+      (handleTask)="handleTask($event)"
+    ></app-task-list>
+  </div>
 </div>

@@ -7,6 +7,9 @@ import { Task } from 'src/models/task.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  todo: string = 'todo';
+  inprogress: string = 'inprogress';
+  done: string = 'done';
   listTask: Task[] = [
     {
       date: new Date(),
@@ -28,16 +31,27 @@ export class AppComponent {
     },
     {
       date: new Date(),
-      description: 'Bug Fix 01 Description',
+      description: 'Bug Fix 04 Description',
       status: 'todo',
-      title: 'Bug Fix 01',
+      title: 'Bug Fix 04',
     },
   ];
   // listTask: Array<IListTask> = [];
   selectedTask: Task | null = null;
+  todoTasks: Task[] = [];
+  inprogressTasks: Task[] = [];
+  doneTasks: Task[] = [];
 
   ngOnInit() {
-    console.log(this.selectedTask);
+    this.organizeTasksByStatus();
+  }
+
+  organizeTasksByStatus() {
+    this.todoTasks = this.listTask.filter((task) => task.status === 'todo');
+    this.inprogressTasks = this.listTask.filter(
+      (task) => task.status === 'inprogress'
+    );
+    this.doneTasks = this.listTask.filter((task) => task.status === 'done');
   }
 
   onAddTask(task: Task) {

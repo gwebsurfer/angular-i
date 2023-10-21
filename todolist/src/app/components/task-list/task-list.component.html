@@ -1,11 +1,8 @@
 <div>
-  <h2>Tarefas</h2>
-
-  <app-task-filtro (onChangeFiltro)="handleFiltro($event)"></app-task-filtro>
-  <ul *ngIf="isVisible">
-    <li *ngFor="let task of filteredTasks">
+  <ul>
+    <li *ngFor="let task of tasks">
       <div
-        (click)="selectedTask(task)"
+        (click)="emitHandleTask(task)"
         appDateGreaterThanToday
         [Date]="task.date"
       >
@@ -15,6 +12,4 @@
       </div>
     </li>
   </ul>
-
-  <button (click)="showList()">Mostrar Lista</button>
 </div>

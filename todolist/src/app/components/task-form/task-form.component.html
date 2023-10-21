@@ -3,8 +3,8 @@
 
   <form (ngSubmit)="submitTask()">
     <div>
-      <input id="title" type="text" [(ngModel)]="newTask.title" name="title" />
       <label for="title">Titulo</label>
+      <input id="title" type="text" [(ngModel)]="newTask.title" name="title" />
     </div>
     <div>
       <label for="description">Descrição</label>
@@ -29,7 +29,6 @@
       </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">sadadsa</button>
-    <!--  <button type="submit">Adicionar Tarefas</button> -->
+    <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
   </form>
 </div>

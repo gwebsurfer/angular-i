@@ -17,7 +17,8 @@ export class TaskListComponent implements OnInit {
   isVisible = true;
 
   @Input() tasks: Task[] = [];
-  @Output() handleTask = new EventEmitter();
+  @Input() status: string = '';
+  @Output() handleTask = new EventEmitter<Task>();
 
   filteredTasks: Task[] = [];
 
@@ -33,7 +34,7 @@ export class TaskListComponent implements OnInit {
     this.handleTask.emit(task);
   }
 
-  handleFiltro(filter: string) {
+  handleFilter(filter: string) {
     if (filter === 'all') {
       this.filteredTasks = this.tasks;
       return;
@@ -45,5 +46,9 @@ export class TaskListComponent implements OnInit {
       }
       return;
     });
+  }
+
+  emitHandleTask(task: Task) {
+    this.handleTask.emit(task);
   }
 }
