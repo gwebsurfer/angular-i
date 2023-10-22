@@ -11,7 +11,7 @@ import { Task } from 'src/models/task.model';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss'],
+  styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
   isVisible = true;

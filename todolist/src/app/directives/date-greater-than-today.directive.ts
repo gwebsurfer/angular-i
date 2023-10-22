@@ -13,7 +13,7 @@ export class DateGreaterThanTodayDirective {
     const today = new Date();
 
     if (today > dateFormat) {
-      this.element.nativeElement.style.color = 'red';
+      //this.element.nativeElement.style.color = 'red';
     }
   }
 }

@@ -1,15 +1,21 @@
-.blue {
-  color: blue;
+.kanban-board {
+  display: flex;
+  justify-content: space-around;
 }
 
-.red {
-  color: red;
+.kanban-column {
+  flex: 1;
+  background-color: #2c333f;
+  border: none;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 16px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.bg-green {
-  background-color: green;
-}
-
-color-red {
-  color: red;
+.kanban-column h2 {
+  font-size: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #ffffff;
 }

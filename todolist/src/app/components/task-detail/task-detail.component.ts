@@ -4,7 +4,7 @@ import { Task } from 'src/models/task.model';
 @Component({
   selector: 'app-task-detail',
   templateUrl: './task-detail.component.html',
-  styleUrls: ['./task-detail.component.scss'],
+  styleUrls: ['./task-detail.component.css'],
 })
 export class TaskDetailComponent {
   @Input() task = new Task();
