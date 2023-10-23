@@ -1,21 +1,30 @@
-div {
-  background-color: rgba(24, 28, 35, 0.3);
-  font-size: 14px;
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-  padding: 8px;
-  margin-bottom: 10px;
-  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+.list {
+  list-style-type: none;
+}
+
+li .task {
+  margin-top: 16px;
+  background-color: rgb(201, 74, 168);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.08),
+    0px 4px 8px 0px rgba(0, 0, 0, 0.12);
   cursor: move;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+li .task .task-header {
+  font-size: 16px;
+  line-height: 150%;
 }
 
-li {
-  margin-bottom: 10px;
-  color: #ffffff;
+li .task .task-date {
+  padding: 4px 0px 8px 0px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+li .task .task-description {
+  font-size: 14px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.75);
 }

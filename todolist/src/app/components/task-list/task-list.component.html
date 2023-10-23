@@ -1,13 +1,16 @@
-<ul>
+<ul class="list" cdkDropList [cdkDropListData]="tasks">
   <li *ngFor="let task of tasks">
     <div
+      class="task"
       (click)="emitHandleTask(task)"
       appDateGreaterThanToday
       [Date]="task.date"
+      cdkDrag
+      cdkDragPreviewContainer="parent"
     >
-      <h3>{{ task.title | uppercase }}</h3>
-      <p>{{ '01/02/2020' | date : 'dd/MM/yyyy' }}</p>
-      <p>{{ task.description }}</p>
+      <h3 class="task-header">{{ task.title }}</h3>
+      <p class="task-date">{{ '01/02/2020' | date : 'dd/MM/yyyy' }}</p>
+      <p class="task-description">{{ task.description }}</p>
     </div>
   </li>
 </ul>

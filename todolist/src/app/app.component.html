@@ -1,11 +1,12 @@
-<app-task-form (addTask)="onAddTask($event)"></app-task-form>
+<!-- <app-task-form (addTask)="onAddTask($event)"></app-task-form> -->
 
 <div class="kanban-board">
   <div class="kanban-column">
-    <h2>To-Do</h2>
+    <h2>To Do</h2>
     <app-task-list
       [tasks]="todoTasks"
       (handleTask)="handleTask($event)"
+      cdkDropList
     ></app-task-list>
   </div>
   <div class="kanban-column">
@@ -13,6 +14,7 @@
     <app-task-list
       [tasks]="inprogressTasks"
       (handleTask)="handleTask($event)"
+      cdkDropList
     ></app-task-list>
   </div>
   <div class="kanban-column">
@@ -20,6 +22,7 @@
     <app-task-list
       [tasks]="doneTasks"
       (handleTask)="handleTask($event)"
+      cdkDropList
     ></app-task-list>
   </div>
 </div>

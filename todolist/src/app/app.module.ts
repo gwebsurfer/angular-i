@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppComponent } from './app.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
@@ -21,7 +22,12 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
     TaskFilterComponent,
     DateGreaterThanTodayDirective,
   ],
-  imports: [BrowserModule, FormsModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    DragDropModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,21 +1,24 @@
 .kanban-board {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  max-width: 1200px;
+  flex-wrap: wrap;
 }
 
 .kanban-column {
   flex: 1;
-  background-color: #2c333f;
+  width: 320px;
+  background-color: #222428;
   border: none;
-  border-radius: 8px;
+  border-radius: 16px;
   padding: 24px;
   margin: 16px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 24px 1px rgba(0, 0, 0, 0.1);
 }
 
 .kanban-column h2 {
   font-size: 24px;
   margin-bottom: 24px;
-  text-align: center;
-  color: #ffffff;
+  line-height: 32px;
+  color: rgb(255, 255, 255);
 }

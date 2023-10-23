@@ -1,3 +1,4 @@
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import {
   Component,
   ElementRef,
@@ -51,4 +52,16 @@ export class TaskListComponent implements OnInit {
   emitHandleTask(task: Task) {
     this.handleTask.emit(task);
   }
+
+  /* moveTask(dropEvent: CdkDragDrop<Task>): void {
+    const {container, previousIndex, currentIndex} = dropEvent;
+
+    if (previousIndex === currentIndex) {
+      return;
+    }
+
+    this.kanbanService.reorderTask(
+
+    )
+  } */
 }
