@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<app-kanban-board></app-kanban-board>`,
+  template: `<app-task-reactive-form></app-task-reactive-form
+    ><app-kanban-board></app-kanban-board>`,
   styles: [
     `
       :host {

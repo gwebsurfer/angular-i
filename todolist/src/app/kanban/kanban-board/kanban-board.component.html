@@ -1,5 +1,5 @@
 <div
-  class="board__lists"
+  class="board-lists"
   cdkDropList
   cdkDropListOrientation="horizontal"
   (cdkDropListDropped)="moveList($event)"
@@ -19,7 +19,7 @@
       cdkDragHandle
     ></app-kanban-drag-handle>
     <app-kanban-list-tasks-wrapper
-      class="board__list__task-wrapper"
+      class="board-list-task-wrapper"
       cdkDropList
       [cdkDropListData]="list"
       (cdkDropListDropped)="moveTask($event)"

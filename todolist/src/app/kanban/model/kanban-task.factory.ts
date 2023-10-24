@@ -8,6 +8,6 @@ export class KanbanTaskFactory {
   }
 
   static createDefault(): KanbanTask {
-    return { id: nextId++, description: 'Novo Card' };
+    return { id: nextId++, description: 'Digite o texto do card' };
   }
 }

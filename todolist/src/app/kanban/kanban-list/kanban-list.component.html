@@ -1,4 +1,4 @@
-<p class="list__title">
+<div class="list-title">
   <ng-content select="[slot='dragHandle']"></ng-content>
   <input
     type="text"
@@ -6,12 +6,12 @@
     (ngModelChange)="titleUpdate($event)"
     [ngModelOptions]="{ updateOn: 'blur' }"
     (keydown.enter)="self.blur()"
-    maxlength="15"
+    maxlength="56"
     #self
   />
-  <span>{{ list.tasks.length }}</span>
-</p>
+  <span [appPluralize]="list.tasks.length"></span>
+</div>
 <ng-content></ng-content>
-<button class="list__add-task" (click)="addTask.emit()">
+<button class="list-add-task" (click)="addTask.emit()">
   <img src="assets/icons/add_rounded.svg" alt="" /> Adicionar Card
 </button>

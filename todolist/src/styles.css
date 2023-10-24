@@ -22,6 +22,8 @@
 :root {
   --body-bg-color: #f5f5f5;
   --default-text-color: #333;
+  --kanban-list-title-color: #999;
+  --kanban-list-add-text-color: #666;
   --base-separation: 1rem;
   --half-separation: calc(var(--base-separation) / 2);
 }

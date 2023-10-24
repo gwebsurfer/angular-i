@@ -1,53 +1,61 @@
 <div>
   <h2>Adicionar Nova Tarefa</h2>
 
-  <form (ngSubmit)="submitTask()" #form="ngForm">
+  <form (ngSubmit)="submitTask()" [formGroup]="reactiveForm">
     <div class="form-group">
       <label for="title">Titulo</label>
       <input
         class="form-control"
         id="title"
         type="text"
-        [(ngModel)]="newTask.title"
         name="title"
-        required
+        formControlName="title"
+        minlength="3"
       />
+      <div *ngIf="reactiveForm.get('title')?.hasError('minlength')">
+        <p>O título deve ter no mínimo 3 caracteres</p>
+      </div>
     </div>
-    <div>
+    <div class="form-group">
       <label for="description">Descrição</label>
       <input
         id="description"
         type="text"
-        [(ngModel)]="newTask.description"
         name="description"
-        required
+        formControlName="description"
       />
     </div>
-    <div>
+    <div class="form-group">
       <label for="date">Data de Vencimento</label>
       <input
         id="date"
         type="date"
-        [(ngModel)]="newTask.date"
         name="date"
         required
         pattern="^\d{4}-\d{2}-\d{2}$"
+        formControlName="date"
       />
     </div>
 
-    <div>
+    <div class="form-group">
       <label for="status">Status</label>
-      <select name="status" id="status" [(ngModel)]="newTask.status" required>
+      <select name="status" id="status" formControlName="status">
         <option value="toDo">ToDo</option>
         <option value="trabalhando">Trabalhando</option>
         <option value="finalizado">Finalizado</option>
       </select>
     </div>
 
-    <div *ngIf="form.invalid && form.touched">
+    <div *ngIf="reactiveForm.invalid && reactiveForm.touched">
       <p>Preencha todos os campos</p>
     </div>
 
-    <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+    <button
+      type="button"
+      (click)="submitTask()"
+      class="btn btn-primary"
+      [disabled]="isFormInvalid"
+      >Adicionar Tarefa</button
+    >
   </form>
 </div>

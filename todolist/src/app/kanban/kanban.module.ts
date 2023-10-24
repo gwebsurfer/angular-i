@@ -8,6 +8,7 @@ import { KanbanDragHandleComponent } from './kanban-drag-handle/kanban-drag-hand
 import { KanbanListTasksWrapperComponent } from './kanban-list-tasks-wrapper/kanban-list-tasks-wrapper.component';
 import { KanbanListComponent } from './kanban-list/kanban-list.component';
 import { KanbanTaskComponent } from './kanban-task/kanban-task.component';
+import { PluralizeDirective } from '../directives/pluralize/pluralize.directive';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { KanbanTaskComponent } from './kanban-task/kanban-task.component';
     KanbanListTasksWrapperComponent,
     KanbanListComponent,
     KanbanTaskComponent,
+    PluralizeDirective,
   ],
   imports: [CommonModule, FormsModule, DragDropModule],
   exports: [KanbanBoardComponent],

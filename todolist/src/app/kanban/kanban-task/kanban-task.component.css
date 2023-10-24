@@ -10,27 +10,27 @@
   margin-bottom: var(--base-separation);
 }
 
-.task__description {
+.task-description {
   outline: none;
   word-break: break-word;
 }
 
-.task__delete {
+.task-delete {
   background: none;
   border: none;
   cursor: pointer;
   flex-shrink: 1;
   margin-left: var(--half-separation);
+}
 
-  img {
-    position: relative;
-    top: 2px;
-    filter: saturate(0) brightness(1.5);
-    transition: filter 300ms ease-in-out;
-  }
+.task-delete img {
+  position: relative;
+  top: 2px;
+  filter: saturate(0) brightness(1.5);
+  transition: filter 300ms ease-in-out;
 
-  &:hover img,
-  &:focus img {
+  &:hover,
+  &:focus {
     filter: none;
   }
 }
