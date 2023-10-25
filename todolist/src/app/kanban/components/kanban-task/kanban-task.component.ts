@@ -1,8 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { KanbanStateService } from './../../kanban-state.service';
+import { KanbanStateService } from '../../../services/kanban-state.service';
 import { MatDialog } from '@angular/material/dialog';
 import { KanbanTask } from '../../model';
 import { TaskDetailModalComponent } from '../task-detail-modal/task-detail-modal.component';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-kanban-task',
@@ -19,16 +20,14 @@ export class KanbanTaskComponent {
 
   constructor(
     private kanbanService: KanbanStateService,
-    public dialog: MatDialog
+    private modalService: ModalService
   ) {}
 
   openTaskModal() {
     const task = this.kanbanService.getTaskDetails(this.task.id);
 
     if (task) {
-      const dialogRef = this.dialog.open(TaskDetailModalComponent, {
-        data: { task },
-      });
+      this.modalService.openTaskModal(task);
     }
   }
 }

@@ -9,6 +9,7 @@ import { KanbanListTasksWrapperComponent } from './components/kanban-list-tasks-
 import { KanbanListComponent } from './components/kanban-list/kanban-list.component';
 import { KanbanTaskComponent } from './components/kanban-task/kanban-task.component';
 import { PluralizeDirective } from '../directives/pluralize/pluralize.directive';
+import { DateEqualsTodayDirective } from '../directives/date-equals-today/date-equals-today.directive';
 import { CustomDateFormatPipe } from '../pipes/date-format.pipe';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { CustomDateFormatPipe } from '../pipes/date-format.pipe';
     KanbanListComponent,
     KanbanTaskComponent,
     PluralizeDirective,
+    DateEqualsTodayDirective,
     CustomDateFormatPipe,
   ],
   imports: [CommonModule, FormsModule, DragDropModule],

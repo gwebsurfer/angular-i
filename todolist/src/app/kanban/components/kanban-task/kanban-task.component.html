@@ -6,7 +6,9 @@
     {{ task.description }}
   </p>
   <div class="task-info">
-    <p class="task-date">Prazo: {{ task.date | customDateFormat }}</p>
+    <p [appDateEqualsToday]="task.date" class="task-date"
+      >Prazo: {{ task.date | customDateFormat }}</p
+    >
 
     <button type="button" class="task-edit" (click)="edit.emit()">
       <img src="assets/icons/edit-icon-2.svg" alt="edit" />

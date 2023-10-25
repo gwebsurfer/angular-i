@@ -12,6 +12,6 @@
   <span [appPluralize]="list.tasks.length"></span>
 </div>
 <ng-content></ng-content>
-<button class="list-add-task" (click)="addTask.emit()">
+<button class="list-add-task" (click)="openAddTaskModal()">
   <img src="assets/icons/add-icon.svg" alt="" /> Adicionar Card
 </button>

@@ -1,6 +1,6 @@
 import { moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Injectable } from '@angular/core';
-import { TransferTaskData } from './common';
+import { TransferTaskData } from '../kanban/common';
 
 import {
   dataBoard,
@@ -8,7 +8,7 @@ import {
   KanbanList,
   KanbanTask,
   KanbanTaskFactory,
-} from './model';
+} from '../kanban/model';
 
 @Injectable()
 export class KanbanStateService {
