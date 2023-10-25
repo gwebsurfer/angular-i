@@ -10,7 +10,7 @@ interface IProps {
   name: 'currencyFormat',
 })
 export class CurrencyFormatPipe implements PipeTransform {
-  transform(value: string, args: IProps): unknown {
+  transform(value: number, args: IProps): unknown {
     console.log(args);
     const formattedValue = Number(value).toLocaleString('pt-BR', args);
     return formattedValue;

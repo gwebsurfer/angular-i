@@ -1,0 +1,65 @@
+:host {
+  background-color: var(--kanban-task-bg-color);
+  color: var(--kanban-task-text-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: calc(1.5 * var(--base-separation));
+  max-width: 400px;
+}
+
+.task-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+}
+
+.task-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  word-wrap: break-word;
+  margin-right: 4px;
+}
+
+.task-description {
+  font-size: 0.85rem;
+  outline: none;
+  word-wrap: break-word;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.688rem;
+  color: var(--kanban-list-info-color);
+  margin-right: -1rem;
+  margin-top: 4px;
+}
+
+.task-hours {
+  font-size: 0.8rem;
+  color: var(--kanban-list-info-color);
+}
+
+.task-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-right: -4px;
+  outline: none;
+}
+
+.task-close img {
+  position: relative;
+  filter: saturate(0) brightness(1.5);
+  transition: filter 300ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    filter: none;
+  }
+}

@@ -1,8 +1,8 @@
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 
-import { KanbanStateService } from '../kanban-state.service';
-import { KanbanBoard, KanbanList, KanbanTask } from '../model';
+import { KanbanStateService } from '../../kanban-state.service';
+import { KanbanBoard, KanbanList, KanbanTask } from '../../model';
 
 @Component({
   selector: 'app-kanban-board',

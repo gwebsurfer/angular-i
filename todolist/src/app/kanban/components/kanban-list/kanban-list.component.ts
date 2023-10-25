@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { KanbanList } from '../model';
+import { KanbanList } from '../../model';
 
 @Component({
   selector: 'app-kanban-list',

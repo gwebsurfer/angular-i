@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { KanbanStateService } from '../kanban-state.service';
+import { KanbanStateService } from './../../kanban-state.service';
 import { MatDialog } from '@angular/material/dialog';
-import { KanbanTask } from '../model';
-import { TaskDetailModalComponent } from 'src/app/components/task-detail-modal/task-detail-modal.component';
+import { KanbanTask } from '../../model';
+import { TaskDetailModalComponent } from '../task-detail-modal/task-detail-modal.component';
 
 @Component({
   selector: 'app-kanban-task',
@@ -19,33 +19,16 @@ export class KanbanTaskComponent {
 
   constructor(
     private kanbanService: KanbanStateService,
-    private dialog: MatDialog
+    public dialog: MatDialog
   ) {}
 
   openTaskModal() {
-    console.log('Abrindo modal para a tarefa:', this.task);
     const task = this.kanbanService.getTaskDetails(this.task.id);
-    console.log('Tarefa detalhada:', task);
+
     if (task) {
       const dialogRef = this.dialog.open(TaskDetailModalComponent, {
         data: { task },
       });
     }
   }
-
-  /* titleUpdated(newTitle: string): void {
-    if (newTitle !== this.task.title) {
-      this.updateTitle.emit(newTitle);
-    }
-  }
-  descriptionUpdated(newDescription: string): void {
-    if (newDescription !== this.task.description) {
-      this.updateDescription.emit(newDescription);
-    }
-  }
-  dateUpdated(newDate: Date): void {
-    if (newDate !== this.task.date) {
-      this.updateDate.emit(newDate);
-    }
-  } */
 }
