@@ -52,4 +52,14 @@ export class KanbanStateService {
   }: TransferTaskData): void {
     transferArrayItem(fromList.tasks, toList.tasks, fromIndex, toIndex);
   }
+
+  getTaskDetails(taskId: number): KanbanTask | undefined {
+    for (const list of this.board.lists) {
+      const task = list.tasks.find((task) => task.id === taskId);
+      if (task) {
+        return task;
+      }
+    }
+    return undefined;
+  }
 }

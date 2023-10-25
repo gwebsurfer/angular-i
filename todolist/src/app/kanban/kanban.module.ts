@@ -9,6 +9,7 @@ import { KanbanListTasksWrapperComponent } from './kanban-list-tasks-wrapper/kan
 import { KanbanListComponent } from './kanban-list/kanban-list.component';
 import { KanbanTaskComponent } from './kanban-task/kanban-task.component';
 import { PluralizeDirective } from '../directives/pluralize/pluralize.directive';
+import { CustomDateFormatPipe } from '../pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { PluralizeDirective } from '../directives/pluralize/pluralize.directive'
     KanbanListComponent,
     KanbanTaskComponent,
     PluralizeDirective,
+    CustomDateFormatPipe,
   ],
   imports: [CommonModule, FormsModule, DragDropModule],
-  exports: [KanbanBoardComponent],
+  exports: [KanbanBoardComponent, CustomDateFormatPipe],
 })
 export class KanbanModule {}

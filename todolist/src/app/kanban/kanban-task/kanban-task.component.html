@@ -1,14 +1,18 @@
-<p
-  class="task-description"
-  contenteditable
-  role="textbox"
-  (mousedown)="$event.stopPropagation()"
-  (keydown.enter)="self.blur()"
-  (blur)="descriptionUpdated(self.innerText)"
-  #self
->
-  {{ task.description }}
-</p>
+<div class="task-content" (click)="openTaskModal()">
+  <h3 class="task-title">
+    {{ task.title }}<span class="task-hours"> | {{ task.hours }}h</span>
+  </h3>
+  <p class="task-description">
+    {{ task.description }}
+  </p>
+  <div class="task-info">
+    <p class="task-date">Prazo: {{ task.date | customDateFormat }}</p>
+
+    <button type="button" class="task-edit" (click)="edit.emit()">
+      <img src="assets/icons/edit-icon-2.svg" alt="edit" />
+    </button>
+  </div>
+</div>
 <button type="button" class="task-delete" (click)="remove.emit()">
-  <img src="assets/icons/close_rounded.svg" alt="delete" />
+  <img src="assets/icons/close-icon.svg" alt="delete" />
 </button>

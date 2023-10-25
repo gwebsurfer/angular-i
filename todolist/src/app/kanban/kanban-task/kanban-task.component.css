@@ -4,29 +4,71 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: var(--base-separation);
   border-radius: 8px;
   margin-bottom: var(--base-separation);
 }
 
-.task-description {
-  outline: none;
-  word-break: break-word;
+.task-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.5rem;
+  cursor: pointer;
 }
 
-.task-delete {
+.task-title {
+  font-size: 1rem;
+  font-weight: bold;
+  word-wrap: break-word;
+  margin-right: 4px;
+}
+
+.task-description {
+  font-size: 0.85rem;
+  outline: none;
+  word-wrap: break-word;
+}
+
+.task-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.688rem;
+  color: var(--kanban-list-info-color);
+  margin-right: -1rem;
+  margin-top: 4px;
+}
+
+.task-hours {
+  font-size: 0.8rem;
+  color: var(--kanban-list-info-color);
+}
+
+.task-delete,
+.task-edit {
   background: none;
   border: none;
   cursor: pointer;
-  flex-shrink: 1;
-  margin-left: var(--half-separation);
+  margin-right: -4px;
 }
 
 .task-delete img {
   position: relative;
-  top: 2px;
+  width: 18px;
   filter: saturate(0) brightness(1.5);
+  transition: filter 300ms ease-in-out;
+
+  &:hover,
+  &:focus {
+    filter: none;
+  }
+}
+
+.task-edit img {
+  filter: saturate(0) brightness(1.1);
   transition: filter 300ms ease-in-out;
 
   &:hover,

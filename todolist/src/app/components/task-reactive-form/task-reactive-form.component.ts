@@ -12,6 +12,7 @@ export class TaskReactiveFormComponent {
     title: ['', Validators.required],
     description: ['', Validators.required],
     date: ['', Validators.required],
+    hours: ['', Validators.required],
     status: ['toDo', Validators.required],
   });
 

@@ -3,7 +3,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 @Component({
   selector: 'app-kanban-drag-handle',
   template: `<img
-    src="assets/icons/drag_indicator_rounded.svg"
+    src="assets/icons/drag-indicator-icon.svg"
     alt="drag"
     role="button"
   />`,

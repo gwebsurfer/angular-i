@@ -8,6 +8,8 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { DateGreaterThanTodayDirective } from './directives/date-greater-than-today.directive';
 import { TaskReactiveFormComponent } from './components/task-reactive-form/task-reactive-form.component';
 import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
+import { TaskDetailModalComponent } from './components/task-detail-modal/task-detail-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
     DateGreaterThanTodayDirective,
     TaskReactiveFormComponent,
     CurrencyFormatPipe,
+    TaskDetailModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +26,7 @@ import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
     BrowserAnimationsModule,
     KanbanModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
