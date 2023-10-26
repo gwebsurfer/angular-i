@@ -24,6 +24,8 @@ export class KanbanTaskComponent {
   ) {}
 
   openTaskModal() {
+    this.kanbanService.recordTaskClick(this.task);
+
     const task = this.kanbanService.getTaskDetails(this.task.id);
 
     if (task) {

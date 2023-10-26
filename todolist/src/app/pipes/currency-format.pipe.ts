@@ -11,7 +11,6 @@ interface IProps {
 })
 export class CurrencyFormatPipe implements PipeTransform {
   transform(value: number, args: IProps): unknown {
-    console.log(args);
     const formattedValue = Number(value).toLocaleString('pt-BR', args);
     return formattedValue;
   }

@@ -6,11 +6,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { KanbanModule } from './kanban/kanban.module';
+import { KanbanStateService } from './services/kanban-state.service';
+import { ModalService } from './services/modal.service';
+import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
+import { DateMaskDirective } from './directives/date-mask/date-mask.directive';
 import { TaskFormComponent } from './kanban/components/task-form/task-form.component';
 import { TaskReactiveFormComponent } from './kanban/components/task-reactive-form/task-reactive-form.component';
 import { TaskDetailModalComponent } from './kanban/components/task-detail-modal/task-detail-modal.component';
-import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
-import { ModalService } from './services/modal.service';
+import { TaskLogsComponent } from './kanban/components/task-logs/task-logs.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,8 @@ import { ModalService } from './services/modal.service';
     TaskReactiveFormComponent,
     CurrencyFormatPipe,
     TaskDetailModalComponent,
+    TaskLogsComponent,
+    DateMaskDirective,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { ModalService } from './services/modal.service';
     ReactiveFormsModule,
     MatDialogModule,
   ],
-  providers: [ModalService],
+  providers: [KanbanStateService, ModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

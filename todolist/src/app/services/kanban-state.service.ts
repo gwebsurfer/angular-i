@@ -13,6 +13,7 @@ import {
 @Injectable()
 export class KanbanStateService {
   public board: KanbanBoard = dataBoard;
+  private clickLogs: string[] = [];
 
   constructor() {}
 
@@ -61,5 +62,16 @@ export class KanbanStateService {
       }
     }
     return undefined;
+  }
+
+  recordTaskClick(task: KanbanTask): void {
+    const clickTimeStamp = new Date().toLocaleTimeString();
+    const logMessage = `Tarefa clicada em ${clickTimeStamp} | ID: ${task.id} - ${task.title}`;
+    this.clickLogs.push(logMessage);
+    console.log('log', logMessage);
+  }
+
+  getClickLogs(): string[] {
+    return this.clickLogs;
   }
 }
