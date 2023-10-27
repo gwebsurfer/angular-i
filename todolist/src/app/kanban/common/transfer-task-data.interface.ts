@@ -1,4 +1,4 @@
-import { KanbanList } from '../model';
+import { KanbanList } from '../../../models';
 
 export interface TransferTaskData {
   fromList: KanbanList;

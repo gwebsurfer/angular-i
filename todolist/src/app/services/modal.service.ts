@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskReactiveFormComponent } from '../kanban/components/task-reactive-form/task-reactive-form.component';
 import { TaskDetailModalComponent } from '../kanban/components/task-detail-modal/task-detail-modal.component';
-import { KanbanTask } from '../kanban/model';
+import { KanbanTask } from '../../models';
 
 @Injectable()
 export class ModalService {

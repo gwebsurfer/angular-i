@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { KanbanStateService } from '../../../services/kanban-state.service';
-import { MatDialog } from '@angular/material/dialog';
-import { KanbanTask } from '../../model';
-import { TaskDetailModalComponent } from '../task-detail-modal/task-detail-modal.component';
+import { KanbanTask } from '../../../../models';
 import { ModalService } from 'src/app/services/modal.service';
+import { TaskLogsService } from 'src/app/services/task-logs.service';
+import { TransferTaskData } from '../../common';
 
 @Component({
   selector: 'app-kanban-task',
@@ -20,15 +20,17 @@ export class KanbanTaskComponent {
 
   constructor(
     private kanbanService: KanbanStateService,
-    private modalService: ModalService
+    private modalService: ModalService,
+    private taskLogsService: TaskLogsService
   ) {}
 
   openTaskModal() {
-    this.kanbanService.recordTaskClick(this.task);
-
     const task = this.kanbanService.getTaskDetails(this.task.id);
 
     if (task) {
+      const logMessage = `Card clicado | ID: ${task.id} - Título: ${task.title}`;
+      this.taskLogsService.addLog(logMessage);
+
       this.modalService.openTaskModal(task);
     }
   }

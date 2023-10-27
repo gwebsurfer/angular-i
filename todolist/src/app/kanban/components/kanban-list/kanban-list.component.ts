@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { KanbanList } from '../../model';
+import { KanbanList, KanbanTask } from '../../../../models';
 import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ModalService } from 'src/app/services/modal.service';
 })
 export class KanbanListComponent {
   @Input() list!: KanbanList;
-  @Output() readonly addTask = new EventEmitter<void>();
+  @Output() readonly addTask = new EventEmitter<KanbanTask>();
   @Output() readonly titleChanged = new EventEmitter<string>();
   @Output() readonly remove = new EventEmitter<void>();
 
@@ -22,7 +22,7 @@ export class KanbanListComponent {
   }
 
   openAddTaskModal() {
-    this.modalService.openAddTaskModal().subscribe((newTask) => {
+    this.modalService.openAddTaskModal().subscribe((newTask: KanbanTask) => {
       if (newTask) {
         this.addTask.emit(newTask);
       }

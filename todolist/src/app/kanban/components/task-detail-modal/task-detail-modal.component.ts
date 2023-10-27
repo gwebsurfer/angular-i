@@ -1,6 +1,6 @@
 import { Component, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { KanbanTask } from 'src/app/kanban/model';
+import { KanbanTask } from 'src/models';
 
 @Component({
   selector: 'app-task-detail-modal',

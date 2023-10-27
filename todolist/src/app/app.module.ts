@@ -8,12 +8,12 @@ import { AppComponent } from './app.component';
 import { KanbanModule } from './kanban/kanban.module';
 import { KanbanStateService } from './services/kanban-state.service';
 import { ModalService } from './services/modal.service';
+import { TaskLogsService } from './services/task-logs.service';
 import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
 import { DateMaskDirective } from './directives/date-mask/date-mask.directive';
 import { TaskFormComponent } from './kanban/components/task-form/task-form.component';
 import { TaskReactiveFormComponent } from './kanban/components/task-reactive-form/task-reactive-form.component';
 import { TaskDetailModalComponent } from './kanban/components/task-detail-modal/task-detail-modal.component';
-import { TaskLogsComponent } from './kanban/components/task-logs/task-logs.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,6 @@ import { TaskLogsComponent } from './kanban/components/task-logs/task-logs.compo
     TaskReactiveFormComponent,
     CurrencyFormatPipe,
     TaskDetailModalComponent,
-    TaskLogsComponent,
     DateMaskDirective,
   ],
   imports: [
@@ -33,7 +32,7 @@ import { TaskLogsComponent } from './kanban/components/task-logs/task-logs.compo
     ReactiveFormsModule,
     MatDialogModule,
   ],
-  providers: [KanbanStateService, ModalService],
+  providers: [KanbanStateService, ModalService, TaskLogsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

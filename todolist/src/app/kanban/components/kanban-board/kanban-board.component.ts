@@ -2,7 +2,7 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 
 import { KanbanStateService } from '../../../services/kanban-state.service';
-import { KanbanBoard, KanbanList, KanbanTask } from '../../model';
+import { KanbanBoard, KanbanList, KanbanTask } from '../../../../models';
 
 @Component({
   selector: 'app-kanban-board',
@@ -45,8 +45,8 @@ export class KanbanBoardComponent {
     this.kanbanService.removeTaskFromList(list, taskIndex);
   }
 
-  updateTaskDescription(task: KanbanTask, newDescription: string): void {
-    this.kanbanService.updateTask(task, newDescription);
+  updateTask(task: KanbanTask): void {
+    this.kanbanService.updateTask(task);
   }
 
   moveTask(dropEvent: CdkDragDrop<KanbanList>): void {

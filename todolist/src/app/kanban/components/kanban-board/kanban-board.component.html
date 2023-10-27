@@ -28,7 +28,7 @@
         *ngFor="let task of list.tasks; index as taskIndex; trackBy: trackById"
         [task]="task"
         (remove)="removeTaskFromList(list, taskIndex)"
-        (updateDescription)="updateTaskDescription(task, $event)"
+        (updateTask)="updateTask(task)"
         cdkDrag
         cdkDragPreviewContainer="parent"
       ></app-kanban-task>

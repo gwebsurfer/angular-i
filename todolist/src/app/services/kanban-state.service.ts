@@ -8,12 +8,12 @@ import {
   KanbanList,
   KanbanTask,
   KanbanTaskFactory,
-} from '../kanban/model';
+} from '../../models';
 
 @Injectable()
 export class KanbanStateService {
+  private nextId: number = 1000;
   public board: KanbanBoard = dataBoard;
-  private clickLogs: string[] = [];
 
   constructor() {}
 
@@ -30,15 +30,31 @@ export class KanbanStateService {
   }
 
   addTaskToList(list: KanbanList): void {
-    list.tasks.push(KanbanTaskFactory.createDefault());
+    list.tasks.push(
+      KanbanTaskFactory.from({
+        id: this.nextId++,
+        title: 'Nova Tarefa',
+        description: '',
+        hours: 0,
+        date: new Date(),
+        status: 'toDo',
+      })
+    );
   }
 
   removeTaskFromList(list: KanbanList, taskIndex: number): void {
     list.tasks.splice(taskIndex, 1);
   }
 
-  updateTask(task: KanbanTask, newDescription: string): void {
-    task.description = newDescription;
+  updateTask(task: KanbanTask): void {
+    const { id } = task;
+    const taskToUpdate = this.getTaskDetails(id);
+
+    if (!taskToUpdate) {
+      return;
+    }
+
+    Object.assign(taskToUpdate, task);
   }
 
   reorderTask(list: KanbanList, fromIndex: number, toIndex: number): void {
@@ -62,16 +78,5 @@ export class KanbanStateService {
       }
     }
     return undefined;
-  }
-
-  recordTaskClick(task: KanbanTask): void {
-    const clickTimeStamp = new Date().toLocaleTimeString();
-    const logMessage = `Tarefa clicada em ${clickTimeStamp} | ID: ${task.id} - ${task.title}`;
-    this.clickLogs.push(logMessage);
-    console.log('log', logMessage);
-  }
-
-  getClickLogs(): string[] {
-    return this.clickLogs;
   }
 }
