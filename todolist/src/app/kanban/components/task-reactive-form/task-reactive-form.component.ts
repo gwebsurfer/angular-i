@@ -37,8 +37,6 @@ export class TaskReactiveFormComponent {
   }
 
   ngOnInit() {
-    /*     this.formTask.setValue({ ...this.task }); */
-
     this.reactiveForm.patchValue({ ...this.task });
 
     this.task?.tags?.forEach((item) => {
