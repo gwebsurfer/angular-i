@@ -1,17 +1,9 @@
 <div class="list-title">
   <ng-content select="[slot='dragHandle']"></ng-content>
-  <input
-    type="text"
-    [ngModel]="list.title"
-    (ngModelChange)="titleUpdate($event)"
-    [ngModelOptions]="{ updateOn: 'blur' }"
-    (keydown.enter)="self.blur()"
-    maxlength="56"
-    #self
-  />
-  <span [appPluralize]="list.tasks.length"></span>
+  <h2>{{ list.title }}</h2>
+  <!-- <span [appPluralize]="list.tasks.length"></span> -->
 </div>
 <ng-content></ng-content>
 <button class="list-add-task" (click)="openAddTaskModal()">
-  <img src="assets/icons/add-icon.svg" alt="" /> Adicionar Card
+  <img src="assets/icons/add-icon.svg" alt="plus" /> Adicionar Card
 </button>

@@ -2,15 +2,11 @@
   class="board-lists"
   cdkDropList
   cdkDropListOrientation="horizontal"
-  (cdkDropListDropped)="moveList($event)"
   cdkDropListGroup
 >
   <app-kanban-list
-    *ngFor="let list of board.lists; trackBy: trackById"
+    *ngFor="let list of board.lists"
     [list]="list"
-    (addTask)="addTaskToList(list)"
-    (titleChanged)="updateTitleInList(list, $event)"
-    (remove)="removeList(list)"
     cdkDrag
     cdkDragPreviewContainer="parent"
   >
@@ -22,13 +18,10 @@
       class="board-list-task-wrapper"
       cdkDropList
       [cdkDropListData]="list"
-      (cdkDropListDropped)="moveTask($event)"
     >
       <app-kanban-task
-        *ngFor="let task of list.tasks; index as taskIndex; trackBy: trackById"
+        *ngFor="let task of list.tasks; index as taskIndex"
         [task]="task"
-        (remove)="removeTaskFromList(list, taskIndex)"
-        (updateTask)="updateTask(task)"
         cdkDrag
         cdkDragPreviewContainer="parent"
       ></app-kanban-task>

@@ -18,6 +18,10 @@
   padding: var(--half-separation) 0;
 }
 
+.cdk-drag {
+  padding: calc(var(--base-separation) * 1.5);
+}
+
 .cdk-drag-preview {
   background-color: var(--kanban-preview-bg-color);
   opacity: 0.9;

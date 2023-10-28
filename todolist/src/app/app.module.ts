@@ -14,6 +14,7 @@ import { DateMaskDirective } from './directives/date-mask/date-mask.directive';
 import { TaskFormComponent } from './kanban/components/task-form/task-form.component';
 import { TaskReactiveFormComponent } from './kanban/components/task-reactive-form/task-reactive-form.component';
 import { TaskDetailModalComponent } from './kanban/components/task-detail-modal/task-detail-modal.component';
+import { LocalStorageService } from './services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,12 @@ import { TaskDetailModalComponent } from './kanban/components/task-detail-modal/
     ReactiveFormsModule,
     MatDialogModule,
   ],
-  providers: [KanbanStateService, ModalService, TaskLogsService],
+  providers: [
+    KanbanStateService,
+    ModalService,
+    TaskLogsService,
+    LocalStorageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

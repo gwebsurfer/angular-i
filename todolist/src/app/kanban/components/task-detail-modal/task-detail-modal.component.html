@@ -1,5 +1,8 @@
 <div class="task-content">
   <h2 class="task-title">{{ data.task.title }}</h2>
+  <div class="task-tags">
+    <span class="task-tag" *ngFor="let tag of data.task.tags">{{ tag }}</span>
+  </div>
   <p>Prazo: {{ data.task.date | customDateFormat }}</p>
   <p class="task-description">{{ data.task.description }}</p>
   <div class="task-info">

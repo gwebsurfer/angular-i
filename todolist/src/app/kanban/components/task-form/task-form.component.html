@@ -1,14 +1,13 @@
 <div>
-  <h2>Adicionar Nova Tarefa</h2>
+  <h2>Editar Tarefa</h2>
 
-  <form (ngSubmit)="submitTask()" #form="ngForm">
-    <div class="form-group">
+  <form (ngSubmit)="saveTask()" #form="ngForm">
+    <div>
       <label for="title">Titulo</label>
       <input
-        class="form-control"
         id="title"
         type="text"
-        [(ngModel)]="newTask.title"
+        [(ngModel)]="data.task.title"
         name="title"
         required
       />
@@ -18,7 +17,7 @@
       <input
         id="description"
         type="text"
-        [(ngModel)]="newTask.description"
+        [(ngModel)]="data.task.description"
         name="description"
         required
       />
@@ -28,19 +27,42 @@
       <input
         id="date"
         type="date"
-        [(ngModel)]="newTask.date"
+        [(ngModel)]="data.task.date"
         name="date"
         required
-        pattern="^\d{4}-\d{2}-\d{2}$"
       />
+    </div>
+    <div>
+      <label for="hours">Horas</label>
+      <input
+        id="hours"
+        type="text"
+        [(ngModel)]="data.task.hours"
+        name="hours"
+        required
+      />
+    </div>
+    <div>
+      <div *ngIf="data.task.tags">
+        <div *ngFor="let tag of data.task.tags; let i = index">
+          <label for="tags">Tag {{ i + 1 }}</label>
+          <input
+            id="tags{{ i }}"
+            type="text"
+            [(ngModel)]="data.task.tags[i]"
+            name="tags{{ i }}"
+            required
+          />
+        </div>
+      </div>
     </div>
 
     <div>
       <label for="status">Status</label>
-      <select name="status" id="status" [(ngModel)]="newTask.status" required>
-        <option value="toDo">ToDo</option>
-        <option value="trabalhando">Trabalhando</option>
-        <option value="finalizado">Finalizado</option>
+      <select name="status" id="status" [(ngModel)]="data.task.status" required>
+        <option value="toDo">To Do</option>
+        <option value="inProgress">In Progress</option>
+        <option value="done">Done</option>
       </select>
     </div>
 
@@ -48,6 +70,8 @@
       <p>Preencha todos os campos</p>
     </div>
 
-    <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
+    <button type="submit" class="btn-primary" (click)="saveTask()"
+      >Salvar Tarefa</button
+    >
   </form>
 </div>

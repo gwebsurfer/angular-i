@@ -1,14 +1,14 @@
 import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appDateEqualsToday]',
+  selector: '[appDateLessOrEqualToday]',
 })
-export class DateEqualsTodayDirective {
-  @Input() set appDateEqualsToday(date: Date) {
-    const dateFormat = new Date(date);
+export class DateLessOrEqualTodayDirective {
+  @Input() set appDateLessOrEqualToday(date: Date) {
+    const inputDate = new Date(date);
     const today = new Date();
 
-    if (today.toDateString() === dateFormat.toDateString()) {
+    if (inputDate <= today) {
       this.renderer.setStyle(this.element.nativeElement, 'color', 'red');
     }
   }

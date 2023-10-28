@@ -1,20 +1,27 @@
-<div class="task-content" (click)="openTaskModal()">
-  <h3 class="task-title">
+<div class="task-content">
+  <h3 class="task-title" (click)="openTaskModal()">
     {{ task.title }}<span class="task-hours"> | {{ task.hours }}h</span>
   </h3>
-  <p class="task-description">
+  <div class="task-tags" (click)="openTaskModal()">
+    <span class="task-tag" *ngFor="let tag of task.tags">{{ tag }}</span>
+  </div>
+  <p class="task-description" (click)="openTaskModal()">
     {{ task.description }}
   </p>
   <div class="task-info">
-    <p [appDateEqualsToday]="task.date" class="task-date"
+    <p
+      [appDateLessOrEqualToday]="task.date"
+      [appDateStatusColor]="task.status"
+      class="task-date"
+      (click)="openTaskModal()"
       >Prazo: {{ task.date | customDateFormat }}</p
     >
 
-    <button type="button" class="task-edit" (click)="edit.emit()">
+    <button type="button" class="task-edit" (click)="openEditTaskModal()">
       <img src="assets/icons/edit-icon-2.svg" alt="edit" />
     </button>
   </div>
 </div>
-<button type="button" class="task-remove" (click)="remove.emit()">
+<button type="button" class="task-remove" (click)="removeTask()">
   <img src="assets/icons/remove-icon.svg" alt="delete" />
 </button>

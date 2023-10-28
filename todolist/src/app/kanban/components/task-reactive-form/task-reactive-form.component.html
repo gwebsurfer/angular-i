@@ -23,7 +23,7 @@
     </div>
     <div class="form-group">
       <label for="date">Data de Vencimento</label>
-      <input id="date" type="text" name="date" formControlName="date" />
+      <input id="date" type="date" name="date" formControlName="date" />
     </div>
     <div class="form-group">
       <label for="hours">Horas</label>
@@ -32,14 +32,27 @@
     <div class="form-group">
       <label for="status">Status</label>
       <select name="status" id="status" formControlName="status">
-        <option value="toDo">ToDo</option>
-        <option value="trabalhando">Trabalhando</option>
-        <option value="finalizado">Finalizado</option>
+        <option value="toDo">To Do</option>
+        <option value="inProgress">In Progress</option>
+        <option value="done">Done</option>
       </select>
     </div>
 
+    <div class="form-group" formArrayName="tags">
+      <div *ngFor="let tag of tags.controls; let i = index">
+        <label for="tags">Nome da Tag:</label>
+        <input id="tags" type="text" [formControlName]="i" />
+      </div>
+    </div>
+
     <div *ngIf="reactiveForm.invalid && reactiveForm.touched">
-      <p>Preencha todos os campos</p>
+      <p class="error-msg">Preencha todos os campos</p>
+    </div>
+
+    <div class="form-group">
+      <button type="button" class="btn-secondary" (click)="addTag()">
+        Adicionar Tags
+      </button>
     </div>
 
     <button

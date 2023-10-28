@@ -53,6 +53,16 @@
   color: var(--kanban-list-info-color);
 }
 
+.task-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  background-color: aquamarine;
+  padding: 4px 8px;
+  border-radius: 16px;
+  gap: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .task-remove,
 .task-edit {
   background: none;

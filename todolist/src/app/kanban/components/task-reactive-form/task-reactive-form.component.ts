@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { KanbanTask, KanbanTaskFactory } from '../../../../models';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { KanbanTask } from '../../../../models';
+import { TaskService } from 'src/app/services/tasks.service';
 
 @Component({
   selector: 'app-task-reactive-form',
@@ -8,59 +9,61 @@ import { KanbanTask, KanbanTaskFactory } from '../../../../models';
   styleUrls: ['./task-reactive-form.component.css'],
 })
 export class TaskReactiveFormComponent {
-  private nextId: number = 1000;
   public reactiveForm: FormGroup = this.formBuilder.group({
     title: ['', Validators.required],
     description: ['', Validators.required],
     date: ['', Validators.required],
     hours: ['', Validators.required],
     status: ['toDo', Validators.required],
+    tags: this.formBuilder.array([]),
   });
 
   public isFormInvalid: boolean = true;
 
+  @Input() task: KanbanTask | undefined;
   @Output() addTaskToList = new EventEmitter<KanbanTask>();
 
-  constructor(private formBuilder: FormBuilder) {
+  get tags() {
+    return this.reactiveForm.get('tags') as FormArray;
+  }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private taskService: TaskService
+  ) {
     this.reactiveForm.valueChanges.subscribe(() => {
       this.isFormInvalid = this.reactiveForm.invalid;
     });
   }
 
+  ngOnInit() {
+    /*     this.formTask.setValue({ ...this.task }); */
+
+    this.reactiveForm.patchValue({ ...this.task });
+
+    this.task?.tags?.forEach((item) => {
+      this.addTag(item);
+    });
+
+    console.log(this.reactiveForm.value);
+  }
+
   submitTask() {
     if (this.reactiveForm.invalid) return;
 
-    const newTaskData = this.reactiveForm.value;
+    const newTask: KanbanTask = {
+      id: 0,
+      ...this.reactiveForm.value,
+    };
 
-    const newTask: KanbanTask = KanbanTaskFactory.from({
-      id: this.nextId++,
-      title: newTaskData.title,
-      description: newTaskData.description,
-      hours: newTaskData.hours,
-      date: newTaskData.date,
-      status: newTaskData.status,
-    });
+    const addedTask = this.taskService.addTask(newTask);
 
-    if (newTask.status !== 'toDo') {
-      newTask.status = this.getStatusFromList(newTask.status);
-    }
+    this.addTaskToList.emit(addedTask);
 
     this.reactiveForm.reset();
-    console.log(newTask);
-
-    this.addTaskToList.emit(newTask);
   }
 
-  private getStatusFromList(listStatus: string): string {
-    switch (listStatus) {
-      case 'toDo':
-        return 'toDo';
-      case 'inProgress':
-        return 'inProgress';
-      case 'done':
-        return 'done';
-      default:
-        return 'toDo';
-    }
+  addTag(value = '') {
+    this.tags.push(this.formBuilder.control(value, Validators.required));
   }
 }

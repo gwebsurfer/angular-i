@@ -5,4 +5,5 @@ export interface KanbanTask {
   hours: number;
   date: Date;
   status: string;
+  tags?: string[];
 }
